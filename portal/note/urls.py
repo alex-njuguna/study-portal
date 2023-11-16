@@ -6,5 +6,5 @@ from . import views
 app_name = "note"
 
 urlpatterns = [
-    
+    path("", views.home, name="home")
 ]

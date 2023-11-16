@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+{% if notes %}
+
+    <div class="container">
+        <div class="row">     
+            {% for note in notes %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-capitalize text-primary fw-bold fs-4">
+                            {{ note.title }}
+                        </div>
+                        <div class="card-body fs-5">
+                            {{ note.description|truncatewords:5 }}
+                        </div>
+                        <div class="card-footer mt-auto">
+                            <p class="text-info">
+                                {{ note.created_at }}
+                            </p>
+                            <a class="btn btn-danger" href="">
+                                <i class="fa-solid fa-trash fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}        
+        </div>
+    </div>
+
+{% else %}
+    <h2 class="alert alert-info mt-3">No notes saved at the moment</h2>
+{% endif %}
+    
+{% endblock content %}
+    
