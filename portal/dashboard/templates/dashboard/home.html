@@ -1,155 +1,130 @@
 {% extends 'dashboard/base.html' %}
 
 {% load static %}
-
-
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'dashboard/css/home_style.css' %}">
-{% endblock extra_css %}
     
 
 {% block content %}
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
+    }
+</style>
 
 <div class="container-sm mt-5" style="margin-bottom: 120px;">
     <h2 class="text-center text-primary mt-2 mb-3">Welcome</h2>
     <hr class="mb-3">
     <div class="row">
-        <div class="col-md-3">
+
+    <div class="col-md-3">
         <a class="text-decoration-none" href="">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                    <img class="card-img-top" src="{% static 'dashboard/images/notes.jpg' %}" alt="notes"
-                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                    <div class="text-center mt-3">
-                        <h4>Notes</h4>
-                        <p>Create notes to refer to them later</p>
-                    </div>
+            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div>
+                    <img class="card-img-top card-header" src="{% static 'dashboard/images/notes.jpg' %}" alt="Notes"
+                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <h4 class="card-body text-center">Notes</h4>
+                    <p class="card-footer text-center">Create notes to refer to them later</p>
                 </div>
             </div>
         </a>
-        </div>
-
-        
-            <div class="col-md-3">
-                <a class="text-decoration-none" href="">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                    
-                            <img class="card-img-top" src="{% static 'dashboard/images/homework.jpg' %}" alt="notes"
-                                style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                            <div class="text-center mt-3">
-                                <h4>Homework</h4>
-                                <p>Add homeworks and assign them deadlines</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-       
-        
-
-        
-            <div class="col-md-3">
-                <a class="text-decoration-none" href="">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                    
-                            <img class="card-img-top" src="{% static 'dashboard/images/youtube.jpg' %}" alt="notes"
-                                style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                            <div class="text-center mt-3">
-                                <h4>Youtube</h4>
-                                <p>Search Youtube videos</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-       
-
-        
-            <div class="col-md-3">
-                <a class="text-decoration-none" href="">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                    
-                            <img class="card-img-top" src="{% static 'dashboard/images/todo.jpg' %}" alt="notes"
-                                style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                            <div class="text-center mt-3">
-                                <h4>To do</h4>
-                                <p>Add a todo list and delete them as you finish</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
-       
-            <div class="col-md-3">
-                <a class="text-decoration-none" href="">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                    
-                            <img class="card-img-top" src="{% static 'dashboard/images/books.jpg' %}" alt="notes"
-                                style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                            <div class="text-center mt-3">
-                                <h4>Books</h4>
-                                <p>Browse books</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+    </div>
     
-
-
-            <div class="col-md-3">
-                <a class="text-decoration-none" href="">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                    
-                            <img class="card-img-top" src="{% static 'dashboard/images/dictionary.jpg' %}" alt="notes"
-                                style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                            <div class="text-center mt-3">
-                                <h4>Dictionary</h4>
-                                <p>Search word meanings and pronunciation</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
-        <div class="col-md-3">
-            <a class="text-decoration-none" href="">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                
-                        <img class="card-img-top" src="{% static 'dashboard/images/wikipedia.jpg' %}" alt="notes"
-                            style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                        <div class="text-center mt-3">
-                            <h4>Wikipedia</h4>
-                            <p>Browse information from wikipedia</p>
-                        </div>
-                    </div>
+    <div class="col-md-3">
+        <a class="text-decoration-none" href="">
+            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div>
+                    <img class="card-img-top card-header" src="{% static 'dashboard/images/homework.jpg' %}" alt="Homework"
+                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <h4 class="card-body text-center">Homework</h4>
+                    <p class="card-footer text-center">Add homeworks and assign them deadlines</p>
                 </div>
-            </a>
-        </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-3">
+        <a class="text-decoration-none" href="">
+            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div>
+                    <img class="card-img-top card-header" src="{% static 'dashboard/images/youtube.jpg' %}" alt="Youtube"
+                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <h4 class="card-body text-center">Youtube</h4>
+                    <p class="card-footer text-center">Search Youtube videos</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-3">
+        <a class="text-decoration-none" href="">
+            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div>
+                    <img class="card-img-top card-header" src="{% static 'dashboard/images/todo.jpg' %}" alt="To do"
+                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <h4 class="card-body text-center">To do</h4>
+                    <p class="card-footer text-center">Add a todo list and delete them as you finish</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-3">
+        <a class="text-decoration-none" href="">
+            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div>
+                    <img class="card-img-top card-header" src="{% static 'dashboard/images/books.jpg' %}" alt="Books"
+                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <h4 class="card-body text-center">Books</h4>
+                    <p class="card-footer text-center">Browse books</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-3">
+        <a class="text-decoration-none" href="">
+            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div>
+                    <img class="card-img-top card-header" src="{% static 'dashboard/images/dictionary.jpg' %}"
+                        alt="Dictionary"
+                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <h4 class="card-body text-center">Dictionary</h4>
+                    <p class="card-footer text-center">Search word meanings and pronunciation</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-3">
+        <a class="text-decoration-none" href="">
+            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div>
+                    <img class="card-img-top card-header" src="{% static 'dashboard/images/wikipedia.jpg' %}"
+                        alt="Wikipedia"
+                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    <h4 class="card-body text-center">Wikipedia</h4>
+                    <p class="card-footer text-center">Browse information from Wikipedia</p>
+                </div>
+            </div>
+        </a>
+    </div>
    
 
 
         <div class="col-md-3">
             <a class="text-decoration-none" href="">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body mb-3 rounded" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                
-                        <img class="card-img-top" src="{% static 'dashboard/images/conversion.jpg' %}" alt="notes"
-                            style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
-                        <div class="text-center mt-3">
-                            <h4>Conversion</h4>
-                            <p>Convert weight and length to different standard units</p>
+                <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                        <div>
+                            <img class="card-img-top card-header" src="{% static 'dashboard/images/conversion.jpg' %}" alt="notes"
+                                style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
+                                <h4 class="card-body text-center">Conversion</h4>
+                                <p class="card-footer text-center">Convert weight and length to different standard units</p>
                         </div>
-                    </div>
                 </div>
             </a>
         </div>
@@ -158,10 +133,5 @@
 
 {% endblock content %}
 
-
-
-{% block extra_js %}
-    <script src="{% static 'dashboard/js/home_script.js' %}"></script>
-{% endblock extra_js %}
     
     
