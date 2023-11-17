@@ -27,16 +27,16 @@
                             <td>{{ homework.description }}</td>
                             <td>{{ homework.due }}</td>
                             <td>
-                                <a class="text-decoration-none" href="">
-                                    <form action="" method="post">
-                                        {% if homework.status == True %}
-                                        <input type="checkbox" checked class="form-check-input">
+                                <a class="text-decoration-none" href="{% url 'homework:update_homework' homework.id %}">
+                                    <div class="form-check">
+                                        {% if homework.is_finished == True %}
+                                        <input type="checkbox" class="form-check-input" checked>
                                         {% else %}
                                         <input type="checkbox" class="form-check-input">
                                         {% endif %}
                                         &nbsp;
                                         <label class="text-light" for="status">Mark as complete</label>
-                                    </form>
+                                    </div>
                                 </a>  
                             </td>
                             <td class="text-danger">

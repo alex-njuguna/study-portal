@@ -25,9 +25,11 @@ def update_homework(request, id):
     if homework.is_finished == True:
         homework.is_finished = False
         messages.info(request, f"{homework.title} marked as NOT finished")
+        homework.save()
     else:
         homework.is_finished = True
         messages.success(request, f"{homework.title} marked as FINISHED")
+        homework.save()
     
     return redirect("homework:home")
 
