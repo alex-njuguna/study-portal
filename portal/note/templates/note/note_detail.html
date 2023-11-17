@@ -1,0 +1,21 @@
+{% extends 'dashboard/base.html' %}
+
+
+{% block content %}
+    <div class="container-sm mt-5">
+        <div class="card">
+            <div class="card-title text-primary text-center fw-bold fs-3">
+                {{ note.title }}
+            </div>
+
+            <div class="card-body fs-4">
+                {{ note.description }}
+            </div>
+
+            <div class="card-footer mt-auto text-info">
+                {{ note.created_at }}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

@@ -21,7 +21,7 @@ def home(request):
 
             note = Note(user=user, title=title, description=description)
             note.save()
-            messages.success(request, f"Note {title} saved")
+            messages.success(request, f"Note: {title} saved")
 
             return redirect("note:home")
     else:
@@ -32,3 +32,32 @@ def home(request):
         "title": "notes",
         "form": form
     })
+
+
+def note_detail(request, id):
+    """
+    get a note by id
+    display note details
+    """
+    note = Note.objects.get(user=request.user, id=id)
+
+    return render(request, "note/note_detail.html", {
+        "title": "detail",
+        "note": note
+    })
+
+
+def note_delete(request, id):
+    """
+    get note by id
+    capture note tite
+    delete note
+    """
+    note = Note.objects.get(user=request.user, id=id)
+
+    title = note.title
+    note.delete()
+    messages.info(request, f"Note: {title} deleted!")
+
+
+    return redirect("note:home")

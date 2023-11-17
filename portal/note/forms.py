@@ -18,7 +18,7 @@ class AddNoteForm(forms.ModelForm):
 
         widgets = {
             "title": forms.TextInput(attrs={
-                "class": "form-group",
+                "class": "form-group mb-2",
                 "placeholder": "e.g. Intro to redis"
                 }),
             "description": forms.Textarea(attrs={
