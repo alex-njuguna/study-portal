@@ -6,4 +6,6 @@ urlpatterns = [
 
     path("", include("dashboard.urls")),
     path("note/", include("note.urls")),
+    path("homework/", include("homework.urls")),
+
 ]

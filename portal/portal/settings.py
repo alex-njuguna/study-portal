@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     "dashboard",
     "note",
+    "homework",
 
     "crispy_forms",
 ]
