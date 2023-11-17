@@ -1,0 +1,55 @@
+{% extends 'dashboard/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if homeworks %}
+        <div class="container-md mt-3">
+            <table class="table table-striped table-border table-hover table-dark">
+                <thead>
+                    <tr class="text-capitalize">
+                        <th>#</th>
+                        <th>subject</th>
+                        <th>title</th>
+                        <th>description</th>
+                        <th>due</th>
+                        <th>status</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for homework in homeworks %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td class="text-capitalize">{{ homework.subject }}</td>
+                            <td class="text-capitalize">{{ homework.title }}</td>
+                            <td>{{ homework.description }}</td>
+                            <td>{{ homework.due }}</td>
+                            <td>
+                                <a class="text-decoration-none" href="">
+                                    <form action="" method="post">
+                                        {% if homework.status == True %}
+                                        <input type="checkbox" checked class="form-check-input">
+                                        {% else %}
+                                        <input type="checkbox" class="form-check-input">
+                                        {% endif %}
+                                        &nbsp;
+                                        <label class="text-light" for="status">Mark as complete</label>
+                                    </form>
+                                </a>  
+                            </td>
+                            <td class="text-danger">
+                                <i class="fa-solid fa-trash fa-2x"></i>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    {% else %}
+        <h3 class="alert alert-info">No homeworks added yet</h3>    
+    {% endif %}        
+{% endblock content %}
+    
