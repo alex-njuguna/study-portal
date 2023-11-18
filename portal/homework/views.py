@@ -34,7 +34,17 @@ def update_homework(request, id):
     return redirect("homework:home")
 
 
+def delete_homework(request, id):
+    """
+    delete a given homework
+    """
+    homework = Homework.objects.get(user=request.user, id=id)
 
+    title = homework.title
+    homework.delete()
+    messages.warning(request, f"{title} homework deleted!")
+
+    return redirect("homework:home")
 
 
 
