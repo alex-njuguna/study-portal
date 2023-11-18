@@ -3,6 +3,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+    <!-- display homeworks in a table -->
     {% if homeworks %}
         <div class="container-md mt-3">
             <div class="table-responsive">
@@ -54,6 +56,10 @@
         </div>
     {% else %}
         <h3 class="alert alert-info">No homeworks added yet</h3>    
-    {% endif %}        
+    {% endif %} 
+    
+    
+    <!-- add homewok form -->
+
 {% endblock content %}
     
