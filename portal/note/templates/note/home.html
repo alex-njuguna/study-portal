@@ -4,6 +4,7 @@
 
 {% block content %}
 
+    <!-- display all notes -->
     {% if notes %}
 
         <div class="container mb-5 mt-3">
@@ -38,8 +39,8 @@
         <h2 class="alert alert-info mt-3">No notes saved at the moment</h2>
     {% endif %}
 
-    
-    <div class="container-sm mt-5" style="margin-bottom: 120px;">
+    <!-- create a note form -->
+    <div class="container-sm mt-5 w-75" style="margin-bottom: 120px;">
         <div class="card">
             <fieldset>
                 <legend class="card-title text-center text-success mt-3">
