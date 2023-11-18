@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from .models import Homework
+from.forms import AddHomeworkForm
 
 
 def home(request):
@@ -9,6 +10,35 @@ def home(request):
     get all homeworks for a specific user
     display a form to add a homework
     """
+    if request.method == "POST":
+        form = AddHomeworkForm(request.POST)
+
+        if form.is_valid():
+            user = request.user
+            subject = form.cleaned_data.get("subject")
+            title = form.cleaned_data.get("title")
+            description = form.cleaned_data.get("description")
+            due = form.cleaned_data.get("due")
+            finished = form.cleaned_data.get("is_finished")
+
+            try:
+                if finished == "on":
+                    finished = True
+                else:
+                    finished = False
+            except:
+                finished = False
+
+            homework = Homework(user=user, subject=subject, title=title,
+                                description=description, due=due, finished=finished)
+            homework.save()
+
+            messages.success(request, f"Homework: {title} added successfully")
+
+            return redirect("homework:home")
+    else:
+        form = AddHomeworkForm()
+
     homeworks = Homework.objects.filter(user=request.user)
 
     return render(request, "homework/home.html", {
