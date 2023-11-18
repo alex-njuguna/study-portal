@@ -21,19 +21,11 @@ def home(request):
             due = form.cleaned_data.get("due")
             finished = form.cleaned_data.get("is_finished")
 
-            try:
-                if finished == "on":
-                    finished = True
-                else:
-                    finished = False
-            except:
-                finished = False
-
             homework = Homework(user=user, subject=subject, title=title,
-                                description=description, due=due, finished=finished)
+                                description=description, due=due, is_finished=finished)
             homework.save()
 
-            messages.success(request, f"Homework: {title} added successfully")
+            messages.success(request, f"Homework: {title.upper()} added successfully")
 
             return redirect("homework:home")
     else:
@@ -43,7 +35,8 @@ def home(request):
 
     return render(request, "homework/home.html", {
         "title": "homework",
-        "homeworks": homeworks
+        "homeworks": homeworks,
+        "form": form
     })
 
 def update_homework(request, id):

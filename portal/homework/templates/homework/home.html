@@ -60,6 +60,26 @@
     
     
     <!-- add homewok form -->
+    <div class="container-sm mt-5" style="margin-bottom: 120px;">
+        <div class="card">
+            <fieldset>
+                <legend class="card-title text-center text-info mt-3">
+                    <h2 class="fw-bold fs-2">Create</h2>
+                </legend>
+            </fieldset>
+            <form class="form-group" action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                <fieldset class="card-body">
+                    {{ form|crispy }}
+                </fieldset>
+                <fieldest class="card-footer mt-auto">
+                    <button class="btn btn-outline-primary text-center" type="submit">
+                        Save
+                    </button>
+                </fieldest>
+            </form>
+        </div>
+    </div>
 
 {% endblock content %}
     
