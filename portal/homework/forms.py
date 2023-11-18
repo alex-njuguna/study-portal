@@ -11,6 +11,11 @@ class AddHomeworkForm(forms.ModelForm):
     class Meta:
         model = Homework
         fields = ["subject", "title", "description", "due", "is_finished"]
+
+        labels={
+            "is_finished": "Mark complete"
+        }
+
         widgets = {
             "subject": forms.TextInput(attrs={
                 "class": "form-control mb-2",
@@ -29,6 +34,6 @@ class AddHomeworkForm(forms.ModelForm):
                 "type": "datetime-local"
             }),
             "is_finished": forms.CheckboxInput(attrs={
-                "class": "form-control"
+                "class": "mt-1"
             }),
         }
