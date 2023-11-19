@@ -1,3 +1,20 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+"""
+activity model with fields:
+1. user
+2. title
+3. is_finished
+"""
+class Activity(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    is_finished = models.BooleanField(default=False)
+
+    def __str__(self):
+        """
+        return the titile of the activity
+        """
+        return self.title
