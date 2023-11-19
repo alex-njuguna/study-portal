@@ -10,11 +10,27 @@ def home(request):
     display all activities(title, status, delete action)
     show an add activity form
     """
+    if request.method == "POST":
+        form = ActivityForm(request.POST)
+
+        if form.is_valid():
+            title = form.cleaned_data.get("title")
+            
+            activity = Activity(user=request.user, title=title)
+            activity.save()
+            messages.success(request, f"Activity '{title.upper}' added.")
+
+            return redirect("activity:home")
+
+    else:
+        form = ActivityForm()
+
     activities = Activity.objects.filter(user=request.user)
 
     return render(request, "activity/home.html", {
         "title": "activities",
-        "activities": activities
+        "activities": activities,
+        "form": form
     })
 
 
