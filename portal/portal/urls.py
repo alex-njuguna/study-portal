@@ -8,5 +8,6 @@ urlpatterns = [
     path("note/", include("note.urls")),
     path("homework/", include("homework.urls")),
     path("youtube/", include("youtube.urls")),
+    path("activity/", include("activity.urls")),
 
 ]
