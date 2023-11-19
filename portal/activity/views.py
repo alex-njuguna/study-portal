@@ -50,3 +50,15 @@ def update_activity(request, id):
         activity.save()
         messages.info(request, f"Status for activity '{activity.title.upper()}' updated")
     return redirect("activity:home")
+
+
+def delete_activity(request, id):
+    """delete a given activity"""
+    activity = Activity.objects.get(user=request.user, id=id)
+
+    title = activity.title
+    activity.delete()
+    messages.info(request, f"Activity '{title.upper()}' deleted")
+
+    return redirect("activity:home")
+    
