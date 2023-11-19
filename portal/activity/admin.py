@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Activity
+
+# register Activity model to the admin dashboard
+admin.site.register(Activity)
+
+

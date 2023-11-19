@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 """
-activity model with fields:
+Activity model with fields:
 1. user
 2. title
 3. is_finished
@@ -18,3 +18,4 @@ class Activity(models.Model):
         return the titile of the activity
         """
         return self.title
+
