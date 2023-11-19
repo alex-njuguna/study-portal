@@ -28,9 +28,9 @@ def update_activity(request, id):
     if activity.is_finished == False:
         activity.is_finished = True
         activity.save()
-        messages.info(request, f"Status for activity {activity.title.upper()} updated")
+        messages.info(request, f"Status for activity '{activity.title.upper()}' updated")
     else:
         activity.is_finished = False
         activity.save()
-        messages.info(request, f"Status for activity {activity.title.upper()} updated")
+        messages.info(request, f"Status for activity '{activity.title.upper()}' updated")
     return redirect("activity:home")

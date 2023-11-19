@@ -23,7 +23,7 @@
                                 <td>{{ forloop.counter }}</td>
                                 <td class="text-capitalize">{{ activity.title }}</td>
                                 <td>
-                                    <a class="text-decoration-none" href="">
+                                    <a class="text-decoration-none" href="{% url 'activity:update_activity' activity.id %}">
                                         <div class="text-light">
                                             {% if activity.is_finished == True %}
                                                 <input class="form-cntrol" type="checkbox" name="" id="" checked>
