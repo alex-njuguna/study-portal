@@ -7,7 +7,8 @@
     {% if activities %}
         <div class="container-md mt-5">
             <div class="table-responsive">
-                <table class="table table-striped table-hover table-dark table-bordered">
+                <table class="table table-sm table-striped table-hover table-dark table-bordered">
+                    <caption>List of activities</caption>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -49,6 +50,29 @@
     {% else %} 
         <h3 class="alert alert-info mt-3">No activities listed so far</h3> 
     {% endif %}
+
+
+    <!-- create activity form -->
+    <div class="container-sm mt-5 w-75" style="margin-bottom: 120px;">
+        <div class="card">
+            <fieldset>
+                <legend class="card-title text-center text-primary mt-3">
+                    <h2 class="fw-bold fs-2">Add an activity</h2>
+                </legend>
+            </fieldset>
+            <form class="form-group" action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                <fieldset class="card-body">
+                    {{ form|crispy }}
+                </fieldset>
+                <fieldest class="card-footer mt-auto">
+                    <button class="btn btn-info text-center" type="submit">
+                        Add
+                    </button>
+                </fieldest>
+            </form>
+        </div>
+    </div>
         
 {% endblock content %}
     

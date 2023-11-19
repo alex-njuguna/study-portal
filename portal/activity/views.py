@@ -18,7 +18,7 @@ def home(request):
             
             activity = Activity(user=request.user, title=title)
             activity.save()
-            messages.success(request, f"Activity '{title.upper}' added.")
+            messages.success(request, f"Activity '{title.upper()}' added.")
 
             return redirect("activity:home")
 
