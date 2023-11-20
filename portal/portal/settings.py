@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "homework",
     "youtube",
     "activity",
+    "book",
 
     "crispy_forms",
 ]
