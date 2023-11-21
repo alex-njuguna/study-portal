@@ -1,0 +1,84 @@
+{% extends 'dashboard/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+{% block content %}
+    <!-- Search book form -->
+    <div class="container-sm mt-5 w-50 text-center" style="margin-bottom: 120px;">
+        <div class="card">
+            <fieldset>
+                <legend class="card-title text-success mt-3">
+                    <h2 class="fw-bold fs-2">
+                        <i class="fa-solid fa-book fa-lg"></i>&nbsp; </i>Search Books
+                    </h2>
+                </legend>
+            </fieldset>
+            <form class="form-group" action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                <fieldset class="card-body">
+                    {{ form|crispy }}
+                </fieldset>
+                <fieldset class="card-footer mt-auto">
+                    <button class="btn btn-outline-warning text-center" type="submit">
+                        Search
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Display Search Results -->
+    {% if books %}
+    <div class="container mt-4">
+        <h3 class="text-center text-info">Search Results</h3>
+        <div class="row">
+            {% for book in books %}
+            <div class="col-md-12 mb-4">
+                <div class="card m-3 p-3 shadow">
+                    <div class="row">
+                        <!-- Thumbnail Column -->
+                        <div class="col-md-4">
+                            {% if book.thumbnail %}
+                            <img src="{{ book.thumbnail }}" class="card-img-top img-fluid" alt="{{ book.title }}" style="height: 300px; width: 300px;">
+                            {% else %}
+                            <img src="{% static 'path/to/placeholder-image.jpg' %}" class="card-img-top img-fluid"
+                                alt="{{ book.title }}">
+                            {% endif %}
+                        </div>
+    
+                        <!-- Details Column -->
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ book.title }}</h5>
+                                {% if book.subtitle %}
+                                <h6 class="card-subtitle mb-2 text-muted">{{ book.subtitle }}</h6>
+                                {% endif %}
+                                <p class="card-text">{{ book.description|truncatewords:40 }}</p>
+                                <h4 class="card-text"><strong>Categories:</strong> </h4>
+                                    {% if book.categories %}
+                                        {% for category in book.categories %}
+                                           <p>{{ category }}</p>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p>Not defined</p>    
+                                    {% endif %}
+                                <p class="card-text"><strong>Pages:</strong> {{ book.count|default:"N/A" }}</p>
+                                <p class="card-text"><strong>Rating:</strong> {{ book.rating|default:"N/A" }}</p>
+                                <a href="{{ book.preview }}" class="btn btn-primary" target="_blank">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+
+{% endblock content %}
+    
