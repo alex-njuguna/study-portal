@@ -6,6 +6,16 @@
 
 
 {% block content %}
+
+    <!-- redirect to saved books a book -->
+    <div class="container-sm">
+        <a class="btn btn-success text-decoration-none m-3" href="{% url 'book:books' %}">
+            <i class="fa-solid fa-list fa-lg"></i> &nbsp;Saved books
+        </a>
+    </div>
+    
+
+
     <!-- Search book form -->
     <div class="container-sm mt-5 w-50 text-center" style="margin-bottom: 120px;">
         <div class="card">

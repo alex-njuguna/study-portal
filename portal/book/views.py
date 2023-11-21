@@ -1,7 +1,9 @@
-from django.shortcuts import render
 import requests
 
-from .forms import SearchBookForm
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+from .forms import SearchBookForm, AddBookForm
 
 
 def home(request):
@@ -50,3 +52,21 @@ def home(request):
         "form": form
     })
 
+
+def books(request):
+    """add a book to the portal"""
+    if request.method == "POST":
+        form = AddBookForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, "New book added")
+            return redirect("book:home")
+    else:
+       form = AddBookForm()
+    
+    return render(request, "book/books.html.html", {
+        "title": "books",
+        "form": form
+    })

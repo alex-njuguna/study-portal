@@ -1,0 +1,33 @@
+{% extends 'dashboard/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+{% block content %}
+    <!-- add book form -->
+    <div class="container-sm mt-5 w-50 text-center" style="margin-bottom: 120px;">
+        <div class="card">
+            <fieldset>
+                <legend class="card-title text-success mt-3">
+                    <h2 class="fw-bold fs-2">
+                        <i class="fa-solid fa-book fa-lg"></i>&nbsp; </i>Add a book
+                    </h2>
+                </legend>
+            </fieldset>
+            <form class="form-group" action="" method="post" enctype="multipart/form-data" autocomplete="off">
+                {% csrf_token %}
+                <fieldset class="card-body">
+                    {{ form|crispy }}
+                </fieldset>
+                <fieldset class="card-footer mt-auto">
+                    <button class="btn btn-outline-warning text-center" type="submit">
+                        Search
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+    
