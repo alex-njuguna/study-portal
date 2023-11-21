@@ -1,5 +1,7 @@
 from django import forms
 
+from .models import Book
+
 
 """
 create a search youtube form 
@@ -10,3 +12,21 @@ class SearchBookForm(forms.Form):
                                   widget=forms.TextInput(attrs={
                                       "class": "w-100"
                                   }))
+
+
+"""form to upload a book"""
+class AddBookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ["title", "contents"]
+
+        labels = {
+            "title": "Book Title: ",
+            "contents": "Upload book (epub or pdf)"
+        }
+
+        widgets = {
+            "title": forms.TextInput(attrs={
+                "class": "form-control"
+                }),
+        }
