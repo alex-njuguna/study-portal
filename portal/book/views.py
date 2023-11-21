@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 import requests
-import json
 
 from .forms import SearchBookForm
 
@@ -23,16 +22,17 @@ def home(request):
 
             books = []
             for item in data["items"]:
-                book = {}
                 volume_info = item['volumeInfo']
-                book['title'] = volume_info.get('title')
-                book['subtitle'] = volume_info.get('subtitle')
-                book['description'] = volume_info.get('description')
-                book['count'] = volume_info.get('pageCount')
-                book['categories'] = volume_info.get('categories')
-                book['rating'] = volume_info.get('averageRating')
-                book['thumbnail'] = volume_info.get('imageLinks', {}).get('thumbnail')
-                book['preview'] = volume_info.get('previewLink')
+                book = {
+                    'title': volume_info.get('title'),
+                    'subtitle': volume_info.get('subtitle'),
+                    'description': volume_info.get('description'),
+                    'count': volume_info.get('pageCount'),
+                    'categories': volume_info.get('categories'),
+                    'rating': volume_info.get('averageRating'),
+                    'thumbnail': volume_info.get('imageLinks', {}).get('thumbnail'),
+                    'preview': volume_info.get('previewLink')
+                }
 
                 books.append(book)
 
