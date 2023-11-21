@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from .forms import SearchBookForm, AddBookForm
+from .models import Book
 
 
 def home(request):
@@ -59,14 +60,23 @@ def books(request):
         form = AddBookForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
+            user = request.user
+            title = form.cleaned_data.get("title")
+            contents = form.cleaned_data.get("contents")
 
+            book = Book(user=user, title=title, contents=contents)
+
+            book.save()
             messages.success(request, "New book added")
-            return redirect("book:home")
+
+            return redirect("book:books")
     else:
        form = AddBookForm()
+
+    books_list = Book.objects.filter(user=request.user)
     
-    return render(request, "book/books.html.html", {
+    return render(request, "book/books.html", {
         "title": "books",
-        "form": form
+        "form": form,
+        "books": books_list
     })

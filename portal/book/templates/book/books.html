@@ -16,14 +16,14 @@
                     </h2>
                 </legend>
             </fieldset>
-            <form class="form-group" action="" method="post" enctype="multipart/form-data" autocomplete="off">
+            <form  action="" method="post" enctype="multipart/form-data" autocomplete="off">
                 {% csrf_token %}
                 <fieldset class="card-body">
                     {{ form|crispy }}
                 </fieldset>
                 <fieldset class="card-footer mt-auto">
                     <button class="btn btn-outline-warning text-center" type="submit">
-                        Search
+                        <i class="fa-solid fa-plus"></i>&nbsp;Add
                     </button>
                 </fieldset>
             </form>

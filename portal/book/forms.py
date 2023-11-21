@@ -22,11 +22,11 @@ class AddBookForm(forms.ModelForm):
 
         labels = {
             "title": "Book Title: ",
-            "contents": "Upload book (epub or pdf)"
+            "contents": "(epub or pdf)"
         }
 
         widgets = {
             "title": forms.TextInput(attrs={
-                "class": "form-control"
+                "class": "form-control mb-3"
                 }),
         }
