@@ -1,3 +1,10 @@
-.active{
-    width: 20rem;
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer-wrapper {
+    margin-top: auto;
 }

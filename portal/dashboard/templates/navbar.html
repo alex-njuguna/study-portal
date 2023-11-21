@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link active" href="{% url 'dashboard:home' %}">Home
                         <span class="visually-hidden">(current)</span>
@@ -23,7 +23,7 @@
                         <a class="dropdown-item" href="{% url 'homework:home' %}">Homework</a>
                         <a class="dropdown-item" href="{% url 'youtube:home' %}">Youtube</a>
                         <a class="dropdown-item" href="{% url 'activity:home' %}">Activities</a>
-                        <a class="dropdown-item" href="#">Books</a>
+                        <a class="dropdown-item" href="{% url 'book:home' %}">Books</a>
                         <a class="dropdown-item" href="#">Dictionary</a>
                         <a class="dropdown-item" href="#">Wikipedia</a>
                         <a class="dropdown-item" href="#">Conversion</a>
