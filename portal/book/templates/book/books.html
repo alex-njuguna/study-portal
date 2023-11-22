@@ -6,6 +6,41 @@
 
 
 {% block content %}
+
+    
+    {% if books %}
+        <div class="container mt-4">
+            <div class="row">
+                
+                {% for book in books %}
+                    <div class="col-md-2">
+                        <div class="card text-center m-3 p-2 shadow">
+                            <div class="card-header bg-danger">
+                                <h5>{{ book.title }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <a href="" class="btn btn-warning">
+                                    View Book
+                                </a>
+                            </div>
+                            <div class="card-footer bg-info">
+                                <a href="">
+                                    <i class="fa-solid fa-trash fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                    
+                
+            </div>
+        </div>
+    {% else %}
+        <div class="alert aler-warning mt-3">No books saved</div>
+    {% endif %}
+        
+
+
     <!-- add book form -->
     <div class="container-sm mt-5 w-50 text-center" style="margin-bottom: 120px;">
         <div class="card">
@@ -22,7 +57,7 @@
                     {{ form|crispy }}
                 </fieldset>
                 <fieldset class="card-footer mt-auto">
-                    <button class="btn btn-outline-warning text-center" type="submit">
+                    <button class="btn btn-info text-center" type="submit">
                         <i class="fa-solid fa-plus"></i>&nbsp;Add
                     </button>
                 </fieldset>

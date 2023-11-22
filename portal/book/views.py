@@ -2,6 +2,7 @@ import requests
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import FileResponse
 
 from .forms import SearchBookForm, AddBookForm
 from .models import Book
@@ -55,7 +56,11 @@ def home(request):
 
 
 def books(request):
-    """add a book to the portal"""
+    """
+    add a book to the portal
+    display all books
+    """
+
     if request.method == "POST":
         form = AddBookForm(request.POST, request.FILES)
 
@@ -80,3 +85,12 @@ def books(request):
         "form": form,
         "books": books_list
     })
+
+def open_book(request, id):
+    """open a book in browser"""
+    book = Book.objects.get(user=request.user, id=id)
+
+    reading_file = open(book.contents_path, "rb")
+
+    return FileResponse(reading_file, 
+                        content_type=["application/pdf", "application/epub"])
