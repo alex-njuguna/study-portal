@@ -10,6 +10,7 @@ urlpatterns = [
     path("youtube/", include("youtube.urls")),
     path("activity/", include("activity.urls")),
     path("book/", include("book.urls")),
+    path("dictionary/", include("dictionary.urls")),
 
 
 ]
