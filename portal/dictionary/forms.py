@@ -4,6 +4,6 @@ from django import forms
 class SearchDictionaryForm(forms.Form):
     text = forms.CharField(max_length=50, label="Search word:", 
                            widget=forms.TextInput(attrs={
-                               "class": "form-control",
+                               "class": "form-control text-center",
                                "placeholder": "family"
                            }))

@@ -1,0 +1,62 @@
+{% extends 'dashboard/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <!-- search dictionary form -->
+    <div class="container-sm mt-5 w-50">
+        <div class="card text-center mb-4">
+            <fieldset>
+                <legend class="card-title text-center text-info mt-3">
+                    <h2 class="fw-bold fs-2">
+                        <i class="fa-solid fa-spell-check fa-lg"></i>&nbsp; Search dictionary
+                    </h2>
+                </legend>
+            </fieldset>
+            <form class="form-group" action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                <fieldset class="card-body">
+                    {{ form|crispy }}
+                </fieldset>
+                <fieldest class="card-footer mt-auto">
+                    <button class="btn btn-outline-primary text-center" type="submit">
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>&nbsp; Search
+                    </button>
+                </fieldest>
+            </form>
+        </div>
+
+
+        {% if input %}
+            {% if phonetics %}
+                <h3>Phonetics:</h3>
+                <p>{{ phonetics }}</p>
+                <audio id="player" src="{{ audio }}"></audio>
+                <div>
+                    <a onclick="document.getElementById('player').play()"<i class="fa-solid fa-volume-high fa-lg"></i>
+                    </a>
+                </div>
+            {% endif %}
+            
+            {% if definition %}
+                <h3>Definition:</h3>
+                <p>{{ definition }}</p>
+            {% endif %}
+            
+            {% if example %}
+                <h3>Example:</h3>
+                <p>{{ example }}</p>
+            {% endif %}
+            
+            {% if synonyms %}
+                <h3>Synonyms:</h3>
+                <ul>
+                    {% for synonym in synonyms %}
+                    <li>{{ synonym }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock content %}
