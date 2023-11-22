@@ -90,7 +90,13 @@ def open_book(request, id):
     """open a book in browser"""
     book = Book.objects.get(user=request.user, id=id)
 
-    reading_file = open(book.contents_path, "rb")
+    if book.contents.name.endswith(".pdf"):
+        content_type = "application/pdf"
+    elif book.contents.name.endswith(".epub"):
+        content_type = "application/epub+zip"
+    else:
+        raise ValueError("Unsupported file type")
 
-    return FileResponse(reading_file, 
-                        content_type=["application/pdf", "application/epub"])
+    reading_file = open(book.contents.path, "rb")
+
+    return FileResponse(reading_file, content_type=content_type)

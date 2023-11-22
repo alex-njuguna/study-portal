@@ -19,7 +19,7 @@
                                 <h5>{{ book.title }}</h5>
                             </div>
                             <div class="card-body">
-                                <a href="" class="btn btn-warning">
+                                <a href="{% url 'book:open_book' book.id %}" class="btn btn-warning">
                                     View Book
                                 </a>
                             </div>
