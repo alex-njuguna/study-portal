@@ -100,3 +100,16 @@ def open_book(request, id):
     reading_file = open(book.contents.path, "rb")
 
     return FileResponse(reading_file, content_type=content_type)
+
+
+def delete_book(request, id):
+    """delete a given book by id"""
+    book = Book.objects.get(user=request.user, id=id)
+    title = book.title
+    book.delete()
+
+    messages.info(request, f"'{title}' deleted.")
+
+    return redirect("book:books")
+
+

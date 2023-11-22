@@ -19,12 +19,12 @@
                                 <h5>{{ book.title }}</h5>
                             </div>
                             <div class="card-body">
-                                <a href="{% url 'book:open_book' book.id %}" class="btn btn-warning">
+                                <a href="{% url 'book:open_book' book.id %}" target="_blank" class="btn btn-warning">
                                     View Book
                                 </a>
                             </div>
                             <div class="card-footer bg-info">
-                                <a href="">
+                                <a href="{% url 'book:delete_book' book.id %}">
                                     <i class="fa-solid fa-trash fa-lg"></i>
                                 </a>
                             </div>
