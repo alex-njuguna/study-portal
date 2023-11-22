@@ -108,7 +108,7 @@ def delete_book(request, id):
     title = book.title
     book.delete()
 
-    messages.info(request, f"'{title}' deleted.")
+    messages.info(request, f"'{title.capitalize()}' deleted.")
 
     return redirect("book:books")
 
