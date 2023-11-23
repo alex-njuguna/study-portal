@@ -11,6 +11,6 @@ urlpatterns = [
     path("activity/", include("activity.urls")),
     path("book/", include("book.urls")),
     path("dictionary/", include("dictionary.urls")),
-
+    path("wiki/", include("wiki.urls")),
 
 ]

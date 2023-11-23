@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "activity",
     "book",
     "dictionary",
+    "wiki",
 
     "crispy_forms",
 ]
