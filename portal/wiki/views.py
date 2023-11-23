@@ -9,9 +9,26 @@ def home(request):
     collect search parameters
     display article from wiki
     """
-    form = WikiSearchForm()
+    if request.method == "POST":
+        form = WikiSearchForm(request.POST)
 
-    return render(request, "wiki/home.html", {
-        "title": "wikipedia",
-        "form": form
-    })
+        if form.is_valid():
+            text = form.cleaned_data.get("text")
+
+            article = wikipedia.search(text)
+
+            context = {
+                "title": "wikipedia",
+                "form": form,
+                "title": article.title,
+                "url": article.url,
+                "summary": article.summary
+            }
+    else:
+        form = WikiSearchForm()
+        context = {
+            "title": "wikipedia",
+            "form": form
+        }
+
+    return render(request, "wiki/home.html", context)
