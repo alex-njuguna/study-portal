@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <!-- Search wikipedia form -->
+    <div class="container-sm mt-5 w-75" style="margin-bottom: 120px;">
+        <div class="card">
+            <fieldset>
+                <legend class="card-title text-center text-info mt-3">
+                    <h2 class="fw-bold fs-2">
+                        <i class="fa-brands fa-wikipedia-w fa-lg"></i>&nbsp;
+                        Search article
+                    </h2>
+                </legend>
+            </fieldset>
+            <form class="form-group" action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                <fieldset class="card-body">
+                    {{ form|crispy }}
+                </fieldset>
+                <fieldest class="card-footer mt-auto">
+                    <button class="btn btn-outline-primary text-center" type="submit">
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i> &nbsp;Search
+                    </button>
+                </fieldest>
+            </form>
+        </div>
+
+
+        
+    </div>
+{% endblock content %}
+    
