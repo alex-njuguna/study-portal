@@ -5,8 +5,8 @@
 
 {% block content %}
     <!-- Search wikipedia form -->
-    <div class="container-sm mt-5 w-75" style="margin-bottom: 120px;">
-        <div class="card">
+    <div class="container-sm mt-5 w-50" style="margin-bottom: 120px;">
+        <div class="card mb-5">
             <fieldset>
                 <legend class="card-title text-center text-info mt-3">
                     <h2 class="fw-bold fs-2">
@@ -28,8 +28,17 @@
             </form>
         </div>
 
+        <!-- display an article -->
+        {% if heading and url and summary %}
+            <h2 class="text-primary text-center text-decoration-underline mb-4">
+                {{ heading }}
+            </h2>
+            <p><a class="btn btn-info" href="{{ url }}" target="_blank">Wikipedia</a></p>
+            <p>{{ summary }}</p>
+        {% else %}
+            <h2 class="alert alert-info">Sorry, cannot find that article at the moment...</h2>
+        {% endif %}
 
-        
     </div>
 {% endblock content %}
     

@@ -7,7 +7,7 @@ from .forms import WikiSearchForm
 def home(request):
     """
     collect search parameters
-    display article from wiki
+    display article from wikipedia
     """
     if request.method == "POST":
         form = WikiSearchForm(request.POST)
@@ -15,14 +15,26 @@ def home(request):
         if form.is_valid():
             text = form.cleaned_data.get("text")
 
-            article = wikipedia.search(text)
+            articles = wikipedia.search(text)
 
-            context = {
+            if articles:
+
+                article_title = articles[0]
+
+                article = wikipedia.page(article_title)
+
+                context = {
+                    "title": "wikipedia",
+                    "form": form,
+                    "heading": article.title,
+                    "url": article.url,
+                    "summary": article.summary
+                }
+            else:
+                context = {
                 "title": "wikipedia",
                 "form": form,
-                "title": article.title,
-                "url": article.url,
-                "summary": article.summary
+                "error_message": "No results found."
             }
     else:
         form = WikiSearchForm()
