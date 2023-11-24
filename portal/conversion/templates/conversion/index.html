@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+    
+    <div class="container-sm w-50 mt-5">
+        <h2 class="mb-4">Measurement Converter</h2>
+        <form method="post" action="{% url 'conversion:index' %}" class="mb-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="value">Enter Value:</label>
+                <input type="number" class="form-control" name="value" required>
+            </div>
+            <div class="form-group">
+                <label for="source_unit">Source Unit:</label>
+                <select class="form-control" name="source_unit" required>
+                    <option value="meter">Meter</option>
+                    <option value="kilometer">Kilometer</option>
+                    <option value="mile">Mile</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="target_unit">Target Unit:</label>
+                <select class="form-control" name="target_unit" required>
+                    <option value="meter">Meter</option>
+                    <option value="kilometer">Kilometer</option>
+                    <option value="mile">Mile</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Convert</button>
+        </form>
+    
+        {% if result %}
+        <p class="lead text-info text-capitalize">
+            <strong>{{ value }} {{ source_unit }}s</strong> = <strong>{{ result }} {{ target_unit }}s</strong>.
+        </p>
+        {% endif %}
+    
+    </div>
+
+{% endblock content %}
+    
+
+
+
