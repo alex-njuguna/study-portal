@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "book",
     "dictionary",
     "wiki",
+    "conversion",
 
     "crispy_forms",
 ]

@@ -12,5 +12,6 @@ urlpatterns = [
     path("book/", include("book.urls")),
     path("dictionary/", include("dictionary.urls")),
     path("wiki/", include("wiki.urls")),
+    path("conversion/", include("conversion.urls")),
 
 ]
