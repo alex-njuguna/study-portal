@@ -17,5 +17,5 @@ def profile(request):
     activities = Activity.objects.filter(user=request.user, is_finished=False)
 
     return render(request, "dashboard/profile.html", {
-        "acrivities": activities
+        "activities": activities
     })
