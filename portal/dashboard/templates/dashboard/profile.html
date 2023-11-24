@@ -3,54 +3,55 @@
 
 {% block content %}
     <!-- display activities -->
-    {% if activities %}
-    <div class="container-md mt-5">
-        <div class="table-responsive">
-            <table class="table table-sm table-striped table-hover table-dark table-bordered">
-                <caption>List of undone activities</caption>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-    
-                <tbody>
-                    {% for activity in activities %}
-                    <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td class="text-capitalize">{{ activity.title }}</td>
-                        <td>
-                            <div class="text-light fw-bold">
-                                NOT DONE
-                            </div>
-                        </td>
-                        <td>
-                            <a href="{% url 'activity:delete_activity' activity.id %}">
-                                <i class="fa-solid fa-trash fa-lg"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+    <div class="container-md w-75">
+        {% if activities %}
+        <div class="container-md mt-5">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped table-hover table-dark table-bordered">
+                    <caption>List of undone activities</caption>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        {% for activity in activities %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td class="text-capitalize">{{ activity.title }}</td>
+                            <td>
+                                <div class="text-light fw-bold">
+                                    NOT DONE
+                                </div>
+                            </td>
+                            <td>
+                                <a href="{% url 'activity:delete_activity' activity.id %}">
+                                    <i class="fa-solid fa-trash fa-lg"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    {% else %}
-    <h3 class="alert alert-info mt-3">All activities appear done</h3>
-    {% endif %}
-
-    <div class="text-center">
-        <a class="btn btn-primary w-25 text-center fw-bold" href="{% url 'activity:home' %}">
-            Activities
-        </a>
-    </div>
-
-
-
-
+        {% else %}
+        <h3 class="alert alert-info mt-3">All activities appear done</h3>
+        {% endif %}
+        
+        <div class="text-center">
+            <a class="btn btn-primary text-center fw-bold p-2" href="{% url 'activity:home' %}">
+                Activities
+            </a>
+        </div>
+        
+        
+        
+        
         <!-- display activities -->
         {% if homeworks %}
         <div class="container-md mt-5">
@@ -96,10 +97,12 @@
         {% endif %}
         
         <div class="text-center">
-            <a class="btn btn-primary w-25 text-center fw-bold" href="{% url 'homework:home' %}">
+            <a class="btn btn-primary text-center fw-bold p-2" href="{% url 'homework:home' %}">
                 Homeworks
             </a>
         </div>
+    </div>
+    
     
 {% endblock content %}
     
