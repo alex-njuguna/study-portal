@@ -15,7 +15,10 @@ def profile(request):
     return undone homeworks
     """
     activities = Activity.objects.filter(user=request.user, is_finished=False)
+    homeworks = Homework.objects.filter(user=request.user, is_finished=False)
 
     return render(request, "dashboard/profile.html", {
-        "activities": activities
+        "activities": activities,
+        "homeworks": homeworks,
+        "title": "profile"
     })
