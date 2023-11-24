@@ -14,31 +14,38 @@
         transform: scale(1.05);
         box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
     }
+
+    .card:hover .card-body{
+        font-weight: 500;
+        letter-spacing: 2px;
+        color: rgb(255, 0, 34);
+    }
 </style>
 
 <div class="container-sm mt-5" style="margin-bottom: 120px;">
-    <h2 class="text-center text-primary mt-2 mb-3">Welcome</h2>
+    <h2 class="text-center text-primary m-4">Welcome</h2>
     <hr class="mb-3">
     <div class="row">
 
     <div class="col-md-3">
         <a class="text-decoration-none" href="{% url 'note:home' %}">
-            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
-                <div>
-                    <img class="card-img-top card-header" src="{% static 'dashboard/images/notes.jpg' %}" alt="Notes"
-                        style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                    <h4 class="card-body text-center">Notes</h4>
-                    <p class="card-footer text-center">Create notes to refer to them later</p>
+            <div class="card m-3 shadow">
+                <img class="image-fluid card-header" src="{% static 'dashboard/images/notes.jpg' %}" alt="Notes"
+                    style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                <h4 class="card-body text-center">Notes</h4>
+                <div class="card-footer">
+                    <p class="text-center">Create notes to refer to them later</p>
                 </div>
             </div>
         </a>
     </div>
+
     
     <div class="col-md-3">
         <a class="text-decoration-none" href="{% url 'homework:home' %}">
-            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+            <div class="card m-3 shadow">
                 <div>
-                    <img class="card-img-top card-header" src="{% static 'dashboard/images/homework.jpg' %}" alt="Homework"
+                    <img class="image-fluid card-header" src="{% static 'dashboard/images/homework.jpg' %}" alt="Homework"
                         style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <h4 class="card-body text-center">Homework</h4>
                     <p class="card-footer text-center">Add homeworks and assign them deadlines</p>
@@ -49,12 +56,12 @@
     
     <div class="col-md-3">
         <a class="text-decoration-none" href="{% url 'youtube:home' %}">
-            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+            <div class="card m-3 shadow">
                 <div>
-                    <img class="card-img-top card-header" src="{% static 'dashboard/images/youtube.jpg' %}" alt="Youtube"
+                    <img class="image-fluid card-header" src="{% static 'dashboard/images/youtube.jpg' %}" alt="Youtube"
                         style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <h4 class="card-body text-center">Youtube</h4>
-                    <p class="card-footer text-center">Search Youtube videos</p>
+                    <p class="card-footer text-center">Search and play Youtube videos/tutorials</p>
                 </div>
             </div>
         </a>
@@ -62,9 +69,9 @@
     
     <div class="col-md-3">
         <a class="text-decoration-none" href="{% url 'activity:home' %}">
-            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+            <div class="card m-3 shadow">
                 <div>
-                    <img class="card-img-top card-header" src="{% static 'dashboard/images/todo.jpg' %}" alt="To do"
+                    <img class="image-fluid card-header" src="{% static 'dashboard/images/todo.jpg' %}" alt="To do"
                         style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <h4 class="card-body text-center">Activities</h4>
                     <p class="card-footer text-center">Add a todo list and delete them as you finish</p>
@@ -75,12 +82,12 @@
     
     <div class="col-md-3">
         <a class="text-decoration-none" href="{% url 'book:home' %}">
-            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+            <div class="card m-3 shadow">
                 <div>
-                    <img class="card-img-top card-header" src="{% static 'dashboard/images/books.jpg' %}" alt="Books"
+                    <img class="image-fluid card-header" src="{% static 'dashboard/images/books.jpg' %}" alt="Books"
                         style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <h4 class="card-body text-center">Books</h4>
-                    <p class="card-footer text-center">Browse books</p>
+                    <p class="card-footer text-center">Browse books or save books for later referencing</p>
                 </div>
             </div>
         </a>
@@ -88,9 +95,9 @@
     
     <div class="col-md-3">
         <a class="text-decoration-none" href="{% url 'dictionary:home' %}">
-            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+            <div class="card m-3 shadow">
                 <div>
-                    <img class="card-img-top card-header" src="{% static 'dashboard/images/dictionary.jpg' %}"
+                    <img class="image-fluid card-header" src="{% static 'dashboard/images/dictionary.jpg' %}"
                         alt="Dictionary"
                         style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <h4 class="card-body text-center">Dictionary</h4>
@@ -101,10 +108,10 @@
     </div>
     
     <div class="col-md-3">
-        <a class="text-decoration-none" href="">
-            <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+        <a class="text-decoration-none" href="{% url 'wiki:home' %}">
+            <div class="card m-3 shadow">
                 <div>
-                    <img class="card-img-top card-header" src="{% static 'dashboard/images/wikipedia.jpg' %}"
+                    <img class="image-fluid card-header" src="{% static 'dashboard/images/wikipedia.jpg' %}"
                         alt="Wikipedia"
                         style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <h4 class="card-body text-center">Wikipedia</h4>
@@ -118,9 +125,9 @@
 
         <div class="col-md-3">
             <a class="text-decoration-none" href="">
-                <div class="card mt-2 mb-3" style="width: 18rem; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+                <div class="card m-3 shadow">
                         <div>
-                            <img class="card-img-top card-header" src="{% static 'dashboard/images/conversion.jpg' %}" alt="notes"
+                            <img class="image-fluid card-header" src="{% static 'dashboard/images/conversion.jpg' %}" alt="notes"
                                 style="height: 200px; object-fit: cover; width: 100%; border-top-left-radius:10px; border-top-right-radius:10px;">
                                 <h4 class="card-body text-center">Conversion</h4>
                                 <p class="card-footer text-center">Convert weight and length to different standard units</p>
