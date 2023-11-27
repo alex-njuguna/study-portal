@@ -26,6 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+
     "dashboard",
     "note",
     "homework",
@@ -49,7 +54,24 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+     "allauth.account.middleware.AccountMiddleware",
 ]
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': 'Iv1.3054a7b4bd6997b6',
+            'secret': '32efb6b602d7e1e1d3b431b860997d8b6c0602c5',
+            'key': ''
+        }
+    }
+}
+
 
 ROOT_URLCONF = 'portal.urls'
 
@@ -64,6 +86,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -123,3 +146,28 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# social authenctication
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# SOCIALACCOUNT_PROVIDERS = (
+#     'google',
+#     'github',
+# )
+
+SOCIALACCOUNT_AUTH_REQUIRED = False
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+SITE_ID = 1
+
+
+# SOCIALACCOUNT_GOOGLE_CLIENT_ID = '110337537514-r7hq5q8mgf7cv58rco06q1jidg31vdoq.apps.googleusercontent.com'
+# SOCIALACCOUNT_GOOGLE_CLIENT_SECRET = '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'
+
+# SOCIALACCOUNT_GITHUB_CLIENT_ID = ' '
+# SOCIALACCOUNT_GITHUB_CLIENT_SECRET = ''
+

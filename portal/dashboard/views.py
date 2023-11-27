@@ -1,7 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from activity.models import Activity
 from homework.models import Homework
+
+
+def social_login(request):
+    if request.user.is_authenticated:
+        return redirect("dashboard:home")
+    
+    return render(request, "dashboard/social_login.html")
 
 
 def home(request):
