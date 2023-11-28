@@ -1,1 +1,1 @@
-# StudyMate
+# StudyMate App
