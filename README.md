@@ -1,1 +1,1 @@
-# study-portal
+# StudyMate
