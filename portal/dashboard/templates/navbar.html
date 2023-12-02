@@ -1,5 +1,25 @@
 {% load socialaccount %}
 
+<style>
+    a{
+        color: white;
+        font-weight: normal;
+    }
+
+    a:hover{
+        letter-spacing: 2px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        border-radius: 8px;
+        width: 120px;
+        margin: 10px;
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'dashboard:home' %}">Study Portal &nbsp;<i class="fa-solid fa-building-columns fa-lg"></i></a>
@@ -8,21 +28,21 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{% url 'dashboard:home' %}">Home
+            <ul class="navbar-nav ms-auto m-3 fs-5">
+                <li class="nav-item m-3">
+                    <a class="btn btn-primary nav-link active" href="{% url 'dashboard:home' %}">Home
                         <span class="visually-hidden">(current)</span>
                     </a>
                 </li>
                 
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dashboard:profile' %}">Profile</a>
+                    <li class="nav-item m-3">
+                        <a class="btn btn-info nav-link" href="{% url 'dashboard:profile' %}">Profile</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown m-3">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                             aria-expanded="false">Options</a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu btn btn-info mb-3 fs-5">
                             <a class="dropdown-item" href="{% url 'note:home' %}">Notes</a>
                             <a class="dropdown-item" href="{% url 'homework:home' %}">Homework</a>
                             <a class="dropdown-item" href="{% url 'youtube:home' %}">Youtube</a>
@@ -33,12 +53,12 @@
                             <a class="dropdown-item" href="{% url 'conversion:index' %}">Conversion</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dashboard:signout' %}">Sign out</a>
+                    <li class="nav-item m-3">
+                        <a class="btn btn-danger nav-link" href="{% url 'dashboard:signout' %}">Sign out</a>
                     </li>
                 {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% provider_login_url 'google' %}?next=/">
+                    <li class="nav-item m-3">
+                        <a class="btn btn-danger nav-link" href="{% provider_login_url 'google' %}?next=/">
                             sign in
                         </a>
                     </li>
