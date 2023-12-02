@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Note
 from .forms import AddNoteForm
 
 
+@login_required
 def home(request):
     """
     display the user notes
@@ -33,7 +35,7 @@ def home(request):
         "form": form
     })
 
-
+@login_required
 def note_detail(request, id):
     """
     get a note by id
@@ -46,7 +48,7 @@ def note_detail(request, id):
         "note": note
     })
 
-
+@login_required
 def note_delete(request, id):
     """
     get note by id
@@ -58,6 +60,5 @@ def note_delete(request, id):
     title = note.title
     note.delete()
     messages.info(request, f"Note: {title} deleted!")
-
 
     return redirect("note:home")

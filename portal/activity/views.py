@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Activity
 from .forms import ActivityForm
 
 
+@login_required
 def home(request):
     """
     display all activities(title, status, delete action)
@@ -34,6 +36,7 @@ def home(request):
     })
 
 
+@login_required
 def update_activity(request, id):
     """
     update the status of the activity from either
@@ -52,6 +55,7 @@ def update_activity(request, id):
     return redirect("activity:home")
 
 
+@login_required
 def delete_activity(request, id):
     """delete a given activity"""
     activity = Activity.objects.get(user=request.user, id=id)

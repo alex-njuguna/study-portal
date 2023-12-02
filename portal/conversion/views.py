@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 def convert_measurement(value, source_unit, target_unit):
@@ -15,6 +16,7 @@ def convert_measurement(value, source_unit, target_unit):
         result = value * conversion_factor
         return result
 
+@login_required
 def index(request):
     if request.method == 'POST':
         value = float(request.POST['value'])

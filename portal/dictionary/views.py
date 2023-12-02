@@ -1,10 +1,12 @@
 import requests
 
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from .forms import SearchDictionaryForm
 
 
+@login_required
 def home(request):
     """
     display search form

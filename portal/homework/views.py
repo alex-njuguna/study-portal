@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Homework
 from.forms import AddHomeworkForm
 
 
+@login_required
 def home(request):
     """
     get all homeworks for a specific user
@@ -39,6 +41,7 @@ def home(request):
         "form": form
     })
 
+@login_required
 def update_homework(request, id):
     """
     update homework to either complete or not
@@ -56,7 +59,7 @@ def update_homework(request, id):
     
     return redirect("homework:home")
 
-
+@login_required
 def delete_homework(request, id):
     """
     delete a given homework
@@ -68,6 +71,3 @@ def delete_homework(request, id):
     messages.warning(request, f"{title} homework deleted!")
 
     return redirect("homework:home")
-
-
-

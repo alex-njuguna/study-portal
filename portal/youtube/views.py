@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from youtubesearchpython import VideosSearch
+from django.contrib.auth.decorators import login_required
 
 from .forms import SearchYoutubeForm
 
 
+@login_required
 def home(request):
     """
     display a search form

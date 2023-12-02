@@ -1,9 +1,11 @@
 import wikipedia
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from .forms import WikiSearchForm
 
 
+@login_required
 def home(request):
     """
     collect search parameters

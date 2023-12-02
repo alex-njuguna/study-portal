@@ -3,11 +3,13 @@ import requests
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import FileResponse
+from django.contrib.auth.decorators import login_required
 
 from .forms import SearchBookForm, AddBookForm
 from .models import Book
 
 
+@login_required
 def home(request):
     """
     display a search form to search books
@@ -55,6 +57,7 @@ def home(request):
     })
 
 
+@login_required
 def books(request):
     """
     add a book to the portal
@@ -86,6 +89,7 @@ def books(request):
         "books": books_list
     })
 
+@login_required
 def open_book(request, id):
     """open a book in browser"""
     book = Book.objects.get(user=request.user, id=id)
@@ -101,7 +105,7 @@ def open_book(request, id):
 
     return FileResponse(reading_file, content_type=content_type)
 
-
+@login_required
 def delete_book(request, id):
     """delete a given book by id"""
     book = Book.objects.get(user=request.user, id=id)
