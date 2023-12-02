@@ -17,6 +17,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -26,10 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 
     "dashboard",
     "note",
@@ -60,16 +62,15 @@ MIDDLEWARE = [
 
 
 SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': 'Iv1.3054a7b4bd6997b6',
-            'secret': '32efb6b602d7e1e1d3b431b860997d8b6c0602c5',
-            'key': ''
+    'google': {
+        "SCOPE": [
+            "profile",
+            "email"
+        ],
+        "AUTH_PARAMS":{
+            "access_type": "online"
         }
-    }
+}
 }
 
 
@@ -86,7 +87,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request',
             ],
         },
     },
@@ -154,20 +154,5 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-# SOCIALACCOUNT_PROVIDERS = (
-#     'google',
-#     'github',
-# )
-
-SOCIALACCOUNT_AUTH_REQUIRED = False
-SOCIALACCOUNT_LOGIN_ON_GET = True
-
-SITE_ID = 1
-
-
-# SOCIALACCOUNT_GOOGLE_CLIENT_ID = '110337537514-r7hq5q8mgf7cv58rco06q1jidg31vdoq.apps.googleusercontent.com'
-# SOCIALACCOUNT_GOOGLE_CLIENT_SECRET = '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'
-
-# SOCIALACCOUNT_GITHUB_CLIENT_ID = ' '
-# SOCIALACCOUNT_GITHUB_CLIENT_SECRET = ''
-
+LOGIN_REDIRECT_URL = "dashboard:home"
+LOGOUT_REDIRECT_URL = "dashboard:home"
