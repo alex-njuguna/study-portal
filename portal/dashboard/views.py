@@ -1,14 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 
 from activity.models import Activity
 from homework.models import Homework
-
-
-def social_login(request):
-    if request.user.is_authenticated:
-        return redirect("dashboard:home")
-    
-    return render(request, "dashboard/social_login.html")
 
 
 def home(request):
@@ -29,3 +23,8 @@ def profile(request):
         "homeworks": homeworks,
         "title": "profile"
     })
+
+def signout(request):
+    logout(request)
+
+    return redirect("dashboard:home")
