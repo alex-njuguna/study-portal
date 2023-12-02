@@ -30,13 +30,16 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign out</a>
+                    <a class="nav-link" href="{% url 'dashboard:signout' %}">Sign out</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Sign up</a>
-                </li>
+                </li> -->
+                {% load socialaccount %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">sign in</a>
+                    <a class="nav-link" href="{% provider_login_url 'google' %}?next=/">
+                        sign in
+                    </a>
                 </li>
             </ul>
         </div>
