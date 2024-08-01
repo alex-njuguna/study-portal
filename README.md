@@ -91,7 +91,7 @@ Pipenv (for managing virtual environment)
 # Installation
 Clone the repository:
 
-`git clone https://github.com/yourusername/study-portal.git`
+`git clone https://github.com/alex-njuguna/study-portal.git`
 `cd study-portal`
 
 Set up the virtual environment:
