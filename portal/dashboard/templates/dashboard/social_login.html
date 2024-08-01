@@ -1,8 +1,0 @@
-{% extends 'dashboard/base.html' %}
-
-{% block content %}
-<h1>Social Login</h1>
-
-<a href="{% url 'social:login' 'google' %}">Login with Google</a>
-<a href="{% url 'social:login' 'github' %}">Login with GitHub</a>
-{% endblock %}

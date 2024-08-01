@@ -1,0 +1,33 @@
+{% extends 'dashboard/base.html' %}
+
+
+{% block content %}
+    
+    {% if user.is_authenticated %}
+        <h3 class="alert alert-info">You are already logged in</h3>
+    {% else %}
+    <div class="container d-flex flex-column align-items-center my-5 pt-4">
+        <div class="d-flex flex-column align-items-center">
+            <h3 class="my-4">Login</h3>
+        <form action="{% url 'dashboard:login' %}" method="post" class="form-control p-3">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" name="username" id="" class="form-control" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" id="" class="form-control" placeholder="password">
+            </div>
+
+            <button type="submit" class="btn btn-danger">Login</button>
+        </form>
+
+        </div>
+        
+    </div>
+    {% endif %}
+        
+   
+    
+{% endblock content %}
+
+    
