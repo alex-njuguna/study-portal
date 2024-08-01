@@ -1,63 +1,46 @@
-
-<style>
-    .btn {
-        padding: 5px 10px;
-        border-radius: 8px;
-        width: 120px;
-        margin: 10px;
-    }
-
-    .btn:hover{
-        color: white;
-        font-weight: bold;
-    }
-</style>
-
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'dashboard:home' %}">Study Portal &nbsp;<i class="fa-solid fa-building-columns fa-lg"></i></a>
+        <a class="navbar-brand" href="{% url 'dashboard:home' %}">
+            Study Portal &nbsp;<i class="fa-solid fa-building-columns fa-lg"></i>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
             aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav ms-auto m-3 fs-5">
-                <li class="nav-item m-3">
-                    <a class="btn btn-primary nav-link active" href="{% url 'dashboard:home' %}">Home
-                        <span class="visually-hidden">(current)</span>
-                    </a>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'dashboard:home' %}">Home</a>
                 </li>
                 
                 {% if user.is_authenticated %}
-                    <li class="nav-item m-3">
-                        <a class="btn btn-info nav-link" href="{% url 'dashboard:profile' %}">Profile</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard:profile' %}">Profile</a>
                     </li>
-                    <li class="nav-item dropdown m-3">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false">Options</a>
-                        <div class="dropdown-menu btn btn-info mb-3 fs-5">
-                            <a class="dropdown-item" href="{% url 'note:home' %}">Notes</a>
-                            <a class="dropdown-item" href="{% url 'homework:home' %}">Homework</a>
-                            <a class="dropdown-item" href="{% url 'youtube:home' %}">Youtube</a>
-                            <a class="dropdown-item" href="{% url 'activity:home' %}">Activities</a>
-                            <a class="dropdown-item" href="{% url 'book:home' %}">Books</a>
-                            <a class="dropdown-item" href="{% url 'dictionary:home' %}">Dictionary</a>
-                            <a class="dropdown-item" href="{% url 'wiki:home' %}">Wikipedia</a>
-                            <a class="dropdown-item" href="{% url 'conversion:index' %}">Conversion</a>
-                        </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Options
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'note:home' %}">Notes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'homework:home' %}">Homework</a></li>
+                            <li><a class="dropdown-item" href="{% url 'youtube:home' %}">Youtube</a></li>
+                            <li><a class="dropdown-item" href="{% url 'activity:home' %}">Activities</a></li>
+                            <li><a class="dropdown-item" href="{% url 'book:home' %}">Books</a></li>
+                            <li><a class="dropdown-item" href="{% url 'dictionary:home' %}">Dictionary</a></li>
+                            <li><a class="dropdown-item" href="{% url 'wiki:home' %}">Wikipedia</a></li>
+                            <li><a class="dropdown-item" href="{% url 'conversion:index' %}">Conversion</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item m-3">
-                        <a class="btn btn-danger nav-link" href="{% url 'dashboard:signout' %}">Sign out</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{% url 'dashboard:signout' %}">Sign out</a>
                     </li>
                 {% else %}
-                    <li class="nav-item m-3">
-                        <a class="btn btn-danger nav-link" href="#">
-                            sign in
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="{% url 'dashboard:login' %}">Sign in</a>
                     </li>
                 {% endif %}
-                    
-                
             </ul>
         </div>
     </div>

@@ -1,0 +1,21 @@
+{% extends 'dashboard/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <div class="container my-5 d-flex flex-column align-items-center">
+        <h3 class="my-3">Create an account</h3>
+        <div class="my-3 d-flex-flex-column align-items-center">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <button type="submit" class="btn btn-info my-3">Join</button>
+            </form>
+        <div class="my-3">
+            <small class="text-muted fst-italic">Already have an account? <a class="text-decoration-none text-danger" href="{% url 'dashboard:login' %}">Login</a></small>
+        </div>
+        </div>
+    </div>
+{% endblock content %}
+    
