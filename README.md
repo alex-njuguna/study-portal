@@ -2,6 +2,9 @@
 
 This project is a comprehensive study portal built using Django. It includes multiple apps for managing various aspects of a student's study routine, such as books, activity tracking, homework, notes, dictionary, conversions, and more.
 
+# Live project deployment
+[Explore how this app works](https://study-portal-five.vercel.app/)
+
 # Project Structure
 .
 ├── activity
