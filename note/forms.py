@@ -12,17 +12,17 @@ class AddNoteForm(forms.ModelForm):
         fields = ["title", "description"]
 
         labels = {
-            "title": "Title: ",
-            "description": "Things to note: "
+            "title": "",
+            "description": ""
         }
 
         widgets = {
             "title": forms.TextInput(attrs={
-                "class": "form-group mb-2",
-                "placeholder": "e.g. Intro to redis"
+                "class": "form-group my-3",
+                "placeholder": "title"
                 }),
             "description": forms.Textarea(attrs={
-                "class": "form-group",
+                "class": "form-group my-3",
                 "placeholder": "Your notes..."
             })
         }

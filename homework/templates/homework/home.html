@@ -1,5 +1,4 @@
 {% extends 'dashboard/base.html' %}
-
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -28,7 +27,7 @@
                             <td class="text-capitalize">{{ homework.subject }}</td>
                             <td class="text-capitalize">{{ homework.title }}</td>
                             <td>{{ homework.description }}</td>
-                            <td>{{ homework.due }}</td>
+                            <td>{{ homework.due_date }}</td>
                             <td>
                                 <a class="text-decoration-none" href="{% url 'homework:update_homework' homework.id %}">
                                     <div class="form-check">
@@ -70,6 +69,7 @@
             <form class="form-group" action="" method="post" autocomplete="off">
                 {% csrf_token %}
                 <fieldset class="card-body">
+                    {{ form.media }}
                     {{ form|crispy }}
                 </fieldset>
                 <fieldest class="card-footer mt-auto">

@@ -50,6 +50,7 @@
             <form class="form-group" action="" method="post" autocomplete="off">
                 {% csrf_token %}
                 <fieldset class="card-body">
+                    {{ form.media }}
                     {{ form|crispy }}
                 </fieldset>
                 <fieldest class="card-footer mt-auto">

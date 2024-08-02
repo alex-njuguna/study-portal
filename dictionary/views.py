@@ -1,5 +1,5 @@
 import requests
-
+from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
@@ -51,6 +51,7 @@ def home(request):
                     "title": "dictionary",
                     "input": ""
                 }
+                messages.info(request, "Could not fetch definition of that word")
             
             return render(request, "dictionary/home.html", context)
             

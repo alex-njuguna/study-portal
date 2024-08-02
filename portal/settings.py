@@ -33,6 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # extensions
+    "crispy_forms",
+    "ckeditor",
+    
+    # local
     "dashboard",
     "note",
     "homework",
@@ -43,7 +48,6 @@ INSTALLED_APPS = [
     "wiki",
     "conversion",
 
-    "crispy_forms",
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"

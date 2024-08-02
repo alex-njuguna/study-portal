@@ -8,9 +8,9 @@ create a search youtube form
 fields - texarea
 """
 class SearchBookForm(forms.Form):
-    text = forms.CharField(max_length=100, label="", 
+    text = forms.CharField(max_length=200, label="", required=True,
                                   widget=forms.TextInput(attrs={
-                                      "class": "w-100"
+                                      "class": "w-100", "placeholder": "book title"
                                   }))
 
 
@@ -21,12 +21,12 @@ class AddBookForm(forms.ModelForm):
         fields = ["title", "contents"]
 
         labels = {
-            "title": "Book Title: ",
+            "title": "",
             "contents": "(epub or pdf)"
         }
 
         widgets = {
             "title": forms.TextInput(attrs={
-                "class": "form-control mb-3"
+                "class": "form-control mb-3", "placeholder": "book title"
                 }),
         }
