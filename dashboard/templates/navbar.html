@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar bg-secondary">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'dashboard:home' %}">
             Study Portal &nbsp;<i class="fa-solid fa-building-columns fa-lg"></i>
@@ -39,6 +39,9 @@
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link text-success" href="{% url 'dashboard:login' %}">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="{% url 'dashboard:register' %}">Join</a>
                     </li>
                 {% endif %}
             </ul>

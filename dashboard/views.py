@@ -31,6 +31,8 @@ def login_user(request):
     return render(request, "dashboard/login.html", {"title": "login"})
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect("dashboard:home")
     form = RegisterUserForm()
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
